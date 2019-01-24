@@ -1,17 +1,17 @@
 ---
 layout: page
-title: ADER18S
-tagline: Analysis of Differential Expression with RNAseq (Second course in 2018)
+title: ADER18F
+tagline: Analysis of Differential Expression with RNAseq (First course in 2018)
 description: Introductory course that covers practical aspects of the analysis of differential gene expression by RNAseq
 ---
 ![](./pages/images/Entry_index_image.jpg)
 
 ## Course Description
-This introductory course covers practical aspects of the **analysis of differential gene expression by RNAseq**, from planning the gathering of sequence data to the generation of tables of differentially expressed gene lists and visualization of results. For this edition of the course, we will also explore some specificities of **single-cell RNAseq data analysis**. Towards the end, we will cover some of the initial steps of secondary analysis, such as **functional enrichment** of the obtained gene lists. Participants will first start learning the concepts using small example datasets, and then will apply the learned concepts in the training room using real sized examples. At the end of the course, participants should be able to autonomously apply most of the learned methods to their own data. 
+This introductory course covers practical aspects of the analysis of differential gene expression by RNAseq, from planning the gathering of sequence data to the generation of tables of differentially expressed gene lists and visualization of results. We we will also cover some of the initial steps of secondary analysis, such as functional enrichment of the obtained gene lists. Participants will first start learning the concepts using small example datasets, and then will apply the learned concepts in the training room using real world examples. Participants will be shown different alternatives for data analysis so they can achieve maximum autonomy after the course.
 
 
 ## Target Audience
-Life Scientists who want to be able to use NGS data (RNAseq) to infer genes differentially expressed between different conditions. Computational researchers that wish to get acquainted with the concepts and methodologies used in RNAseq are also welcome.
+Life Scientists who want to be able to use NGS data (RNAseq) to infer genes differentially expressed between different conditions. Computational researchers that wish to get acquainted with the concepts and methodologies used in RNAseq are also welcome. 
 
 ---
 
@@ -57,7 +57,7 @@ Life Scientists who want to be able to use NGS data (RNAseq) to infer genes diff
 
 + **4.2 -** [Use trimmomatic to remove adaptors and other artefactual sequences from your reads](pages/L04.md#LO4.2)
 		
-      Remove adaptors (eg. illumina adaptors) and unwanted sequences (eg. polyA tails) from your reads
+      Remove adaptors (such as illumina adaptors) from your reads
       Check results using FastQC on filtered data
 
 
@@ -68,7 +68,7 @@ Life Scientists who want to be able to use NGS data (RNAseq) to infer genes diff
       Are genomes constant?
       Obtain genome fasta from Ensembl
        
-+ **5.2 -** [Alignment software: hisat2](pages/L05.md#LO5.2)
++ **5.2 -** [Alignment software: hisat2; salmon](pages/L05.md#LO5.2)
 		  
       What are the requisites for using burrows-wheeler approaches?
       Prepare a reference genome to use with hisat2
@@ -76,7 +76,7 @@ Life Scientists who want to be able to use NGS data (RNAseq) to infer genes diff
 + **5.3 -** [Run an alignment: the SAM/BAM alignment format](pages/L05.md#LO5.3)
 		
       Run hisat2 in an example dataset
-      What is the SAM/BAM format
+      What is the SAM/BAM format;  what is the BAM format
 
 <br/>
 
@@ -102,70 +102,46 @@ Life Scientists who want to be able to use NGS data (RNAseq) to infer genes diff
       What parameters we need to consider when counting
 
 + **7.2 -** [Use featurecounts to generate table of gene counts](pages/L07.md#LO7.2)
-		  
-      Interpret results from featurecounts
+
       
 + **7.3 -** [Using Salmon to generate counts only with the transcriptome](pages/L07.md#LO7.3)
-		
-      Interpret results from salmon
+
 
 <br/>
 
 ### Day 3
 #### 8 - Generate lists of differentially expressed genes, at least for a simple pairwise comparison
-+ **8.1 -** [Execute a pairwise differential expression analysis](pages/L08.md)
++ **8.1 -** [Using the R package edgeR and DESeq2 to produce a pairwise differential expression analysis](pages/L08.md)
 		  
-      Use Galaxy to produce differentially expressed genes with DESeq2
+      Use Galaxy to produce differentially expressed genes with edgeR and DESeq2
+      Use edgeR and DESeq2 in R and RStudio
 
 + **8.2 -** [Interpretation and visualization of results](pages/L08.md#LO8.2)
 		  
-      PCA plots comparing all samples: detection of outliers, and batch effects
-      Heatmaps and other plots
+      Produce PCA plots comparing all samples: outlier detection
+      Visualize expression profiles of top differentially expressed genes
+      Produce other plots such as vulcano plots
 
-+ **8.3 -** [Use more complex settings than simple pairwise comparisons](pages/L08.md#LO8.3)
++ **8.3 -** [Use more complex settings: Generalized Linear Models](pages/L08.md#LO8.3)
       
-      Account for batch effects and paired data
-
-+ **8.4 -** [Gain control over your analysis using R and Rstudio](pages/L08.md#LO8.4)
-		  
-      Use R in Rstudio to make a pairwise comparison using DESeq2 and edgeR
-      Use edgeR to perform more complex analysis such as ANOVA-like all versus all comparisons
+      Account for confounders using Generalized Linear Models
+      Performing ANOVA-like comparisons
 
 <br/>
 
 ### Day 4
-#### 9 - Understand specificies of differential gene expression in single-cell RNAseq
-+ **9.1 -** [Overview of Single Cell RNA-seq (scRNA-seq)](pages/L09.md)
-		  
-      Specificities of single-cell RNAseq, using the Chromium system as example
-      Diferences in raw data preprocessing and counting
-
-+ **9.2 -** [Generate a count matrix for a single-cell RNAseq dataset](pages/L09.md#LO9.2)
-		
-      Use Cell Ranger to preprocess a Chromium (10x Genomics) datasets
-      Use Dropseq tools to obtain an UMI count matrix for a non-standard dataset
-
-+ **9.3 -** [Identification and characterization of cell subpopulations in a UMI count matrix](pages/L09.md#LO9.3)
-		
-      Quality checking and filtering of the count table
-      Interpreting PCA plots and dimensionality reduction
-      Indentify genes that distinguish the different groups
-
-<br/>
-
-### Day 5 
-#### 10 - Perform simple functional enrichment analysis and understand the concepts involved [(**Slides (pdf)**)](./assets/ADER18_-_Functional_Enrichment_Analysis.pdf)
-+ **10.1 -** [How to extract meaning from a list of genes](pages/L10.md)
+#### 9 - Perform simple functional enrichment analysis and understand the concepts involved
++ **9.1 -** [How to extract meaning from a list of genes](pages/LO9.md)
 
       What are functional annotations, what types exist, and where to get them
 
-+ **10.2 -** [Understand the concept of functional enrichment analysis, and the statistics involved](pages/L10.md#LO10.2)
++ **9.2 -** [Understand the concept of functional enrichment analysis, and the statistics involved](pages/L09.md#LO9.2)
 		
       What is enrichment analysis and how is it performed
       How to define sample and population sets
       Why do we need multiple test corrections
 
-+ **10.3 -** [Interpret the results of functional enrichment analysis](pages/L10.md#LO10.3)
++ **9.3 -** [Interpret the results of functional enrichment analysis](pages/L10.md#LO9.3)
 		  
       What can we get from enrichment analysis results
       Using functional enrichment analysis with real lists of genes
@@ -178,4 +154,4 @@ Life Scientists who want to be able to use NGS data (RNAseq) to infer genes diff
 
 ---
 
-The source for this course webpage is [on github](https://github.com/GTPB/ADER18S).
+The source for this course webpage is [on github](https://github.com/GTPB/ADER18F).
