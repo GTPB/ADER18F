@@ -135,13 +135,13 @@ Life Scientists who want to be able to use NGS data (RNAseq) to infer genes diff
 
       What are functional annotations, what types exist, and where to get them
 
-+ **9.2 -** [Understand the concept of functional enrichment analysis, and the statistics involved](pages/L09.md#L09.2)
++ **9.2 -** [Understand the concept of functional enrichment analysis, and the statistics involved](pages/L09.md#LO9.2)
 		
       What is enrichment analysis and how is it performed
       How to define sample and population sets
       Why do we need multiple test corrections
 
-+ **9.3 -** [Interpret the results of functional enrichment analysis](pages/L09.md#L09.3)
++ **9.3 -** [Interpret the results of functional enrichment analysis](pages/L09.md#LO9.3)
 		  
       What can we get from enrichment analysis results
       Using functional enrichment analysis with real lists of genes
