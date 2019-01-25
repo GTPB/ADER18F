@@ -5,7 +5,7 @@ tagline: Analysis of Differential Expression with RNAseq (First course in 2018)
 description: Introductory course that covers practical aspects of the analysis of differential gene expression by RNAseq
 ---
 
-![](./pages/images/RNA_recognition_motif_in_TDP-43_(4BS2))
+![](./pages/images/RNA_recognition_motif_in_TDP-43_(4BS2).png)
 
 ## Course Description
 This introductory course covers practical aspects of the analysis of differential gene expression by RNAseq, from planning the gathering of sequence data to the generation of tables of differentially expressed gene lists and visualization of results. We we will also cover some of the initial steps of secondary analysis, such as functional enrichment of the obtained gene lists. Participants will first start learning the concepts using small example datasets, and then will apply the learned concepts in the training room using real world examples. Participants will be shown different alternatives for data analysis so they can achieve maximum autonomy after the course.
