@@ -128,6 +128,11 @@ Life Scientists who want to be able to use NGS data (RNAseq) to infer genes diff
       Account for confounders using Generalized Linear Models
       Performing ANOVA-like comparisons
 
++ **8.4 -** [Gain control over your analysis using R and Rstudio](pages/L08.md#LO8.4)
+		  
+      Use R in Rstudio to make a pairwise comparison using DESeq2 and edgeR
+      Use edgeR to perform more complex analysis such as ANOVA-like all versus all comparisons
+
 <br/>
 
 ### Day 4
