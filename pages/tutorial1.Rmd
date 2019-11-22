@@ -3,11 +3,18 @@ title: "Using DESeq2 and edgeR in R"
 author: Daniel Neves and Daniel Sobral
 date: "April 5, 2018"
 output: html_document
+schemadotorg:
+  "@context": http://schema.org/
+  "@type": CreativeWork
+  "genre": TrainingMaterial
+  isPartOf:
+      url: "https://gtpb.github.io/ADER18F/"
+      name: "ADER18F - Analysis of Differential Expression with RNAseq (First course in 2018)"
 ---
 
 This document demonstrates how to use *DESeq2* and *edgeR* in the *R environment* to perform a differential expression analysis using the the Trapnell datasets as an example. We will first need to tell R what samples are going to be analysed, then run the *DESeq2* pipeline plot the results of the analysis.
 
-Finally, we will repeat the analysis using another common differential expression package called *edgeR*. 
+Finally, we will repeat the analysis using another common differential expression package called *edgeR*.
 
 # Setting up the environment
 
@@ -81,7 +88,7 @@ table(resHTSeq$padj < 0.05)
 ```
 
 
-Finally, we sort this table by p-value (smaller p-values on top), and save it to a file so that we can later import it into Excel. 
+Finally, we sort this table by p-value (smaller p-values on top), and save it to a file so that we can later import it into Excel.
 
 ```{r}
 orderedRes <- resHTSeq[ order(resHTSeq$padj), ]
@@ -117,7 +124,7 @@ hist(resHTSeq$pvalue, breaks=0:50/50, xlab="p value", main="Histogram of nominal
 
 Two common visualizations for differential expression analyses are the *MA-plot*, that displays the relationship between a genes' mean expression and its fold-change between experimental conditions, and the *Volcano plot*, that displays the relationship between fold-change and evidence of differential expression (represented as -log p-value).
 
-To display an *MA-plot* type the following in the R console. 
+To display an *MA-plot* type the following in the R console.
 
 ```{r}
 plotMA(resHTSeq)
@@ -148,7 +155,7 @@ dists <- dist(t(assay(vsd)))
 heatmap(as.matrix(dists), main="Clustering of euclidean distances", scale="none")
 ```
 
-Here we plot the relative expression of all differentially expressed genes in the 6 samples. This figure is useful to visualize the differences in expression between samples. 
+Here we plot the relative expression of all differentially expressed genes in the 6 samples. This figure is useful to visualize the differences in expression between samples.
 
 ```{r, fig.height=8, fig.width=5}
 library(gplots)
@@ -156,8 +163,8 @@ library(gplots)
 diffgenes <- rownames(resHTSeq)[ which(resHTSeq$padj < 0.05) ]
 diffcounts <- normCounts[ diffgenes, ]
 
-heatmap.2(diffcounts, 
-          labRow = "", 
+heatmap.2(diffcounts,
+          labRow = "",
           trace = "none", density.info = "none",
           scale = "row",
           distfun = function(x) as.dist(1 - cor(t(x))))
@@ -178,8 +185,8 @@ log10_normCounts <- log10(normCounts + 1)
 values <- log10_normCounts[ select, ]
 
 pheatmap(values,
-         scale = "none", 
-         cluster_rows = FALSE, 
+         scale = "none",
+         cluster_rows = FALSE,
          cluster_cols = FALSE,
          fontsize_row = 8,
          annotation_names_col = FALSE,
@@ -208,7 +215,7 @@ rownames(countdata) <- as.character(countdata$Gene)
 countdata$Gene<-NULL
 ```
 
-We load *edgeR* into R. 
+We load *edgeR* into R.
 
 ```{r}
 library(edgeR)
@@ -244,7 +251,7 @@ hist(result_edgeR$PValue, breaks=20, xlab="P-Value", col="royalblue", ylab="Freq
 
 # Comparison between the two methods
 
-To compare the result of the two methods, we first merge both results tables. 
+To compare the result of the two methods, we first merge both results tables.
 
 ```{r}
 comp_table <- merge(as.data.frame(resHTSeq), result_edgeR, by="row.names")
@@ -260,7 +267,7 @@ table("DESeq2" = comp_table$padj < 0.05, "edgeR" = comp_table$FDR < 0.05)
 
 # Independent filtering
 
-Notice from the edgeR p-value distribution that we seem to have alot of genes with FDR close to 1. This may indicate the presence of many genes not being expressed, or with very low expression. 
+Notice from the edgeR p-value distribution that we seem to have alot of genes with FDR close to 1. This may indicate the presence of many genes not being expressed, or with very low expression.
 
 It is often recommended to remove these genes from the analysis. Doing so will reduce the number of statistical tests we are making, and has an impact on the p-value adjustments.
 
@@ -285,5 +292,3 @@ table(result_edgeR_2$FDR < 0.05)
 
 hist(result_edgeR_2$PValue, breaks=20, xlab="P-Value", col="royalblue", ylab="Frequency", main="P-value distribution")
 ```
-
-

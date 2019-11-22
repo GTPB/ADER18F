@@ -1,6 +1,13 @@
 ---
 layout: page
 title: Learning Objectives and Course Pre-requisites
+schemadotorg:
+  "@context": http://schema.org/
+  "@type": CreativeWork
+  "genre": TrainingMaterial
+  isPartOf:
+      url: "https://gtpb.github.io/ADER18F/"
+      name: "ADER18F - Analysis of Differential Expression with RNAseq (First course in 2018)"
 ---
 
 # Learning Objectives
@@ -17,7 +24,7 @@ Course participants will go through a series of experiences that utimately lead 
 8. Generate lists of differentially expressed genes, at least for a simple pairwise comparison
 9. Perform simple functional enrichment analysis and understand the concepts behind them
 
-For this, we are providing small example datasets and exercises that participants can use to learn. 
+For this, we are providing small example datasets and exercises that participants can use to learn.
 
 <br/>
 
