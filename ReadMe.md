@@ -1,4 +1,5 @@
 ## ADER18F - Analysis of Differential Expression with RNAseq (FIrst course in 2018)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3813841.svg)](https://doi.org/10.5281/zenodo.3813841)
 
 ###  Instituto Gulbenkian de Ciência (IGC) - Oeiras, Portugal - April 8<sup>th</sup> - April 12<sup>th</sup> 2018
 
